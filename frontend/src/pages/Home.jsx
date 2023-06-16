@@ -38,14 +38,14 @@ const Home = () => {
                                 <td>
                                     <Link
                                         className="btn btn-primary mx-2"
-                                        to="/viewUser"
+                                        to={`/viewUser/${user.id}`}
                                     >
                                         View
                                     </Link>
 
                                     <Link
                                         className="btn btn-outline-primary mx-2"
-                                        to="viewUser"
+                                        to={`/editUser/${user.id}`}
                                     >
                                         Edit
                                     </Link>
