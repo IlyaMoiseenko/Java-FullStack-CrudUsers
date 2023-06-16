@@ -43,4 +43,14 @@ public class HumanController {
             return humanRepository.save(user);
         }).orElseThrow(() -> new UserNotFoundException(id));
     }
+
+    @DeleteMapping("/user/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        if (!humanRepository.existsById(id))
+            throw new UserNotFoundException(id);
+
+        humanRepository.deleteById(id);
+
+        return "User with id " + id + " has been deleted success";
+    }
 }
