@@ -50,7 +50,7 @@ const AddUser = () => {
                                 className="form-control"
                                 placeholder="Enter user name"
                                 name="userName"
-                                value={user.username}
+                                value={user.userName}
                                 onChange={(event) => onInputChange(event)}
                             />
                         </div>

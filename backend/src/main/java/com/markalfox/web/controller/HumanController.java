@@ -32,4 +32,15 @@ public class HumanController {
     public Human getUserById(@PathVariable long id) {
         return humanRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
+
+    @PutMapping("user/{id}")
+    public Human updateUser(@RequestBody Human newHuman, @PathVariable Long id) {
+        return humanRepository.findById(id).map(user -> {
+            user.setUserName(newHuman.getUserName());
+            user.setName(newHuman.getName());
+            user.setEmail(newHuman.getEmail());
+
+            return humanRepository.save(user);
+        }).orElseThrow(() -> new UserNotFoundException(id));
+    }
 }
